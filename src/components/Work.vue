@@ -5,21 +5,25 @@
     <a class="backButton"
        href="#"
        @click="back">Retour</a>
-        <div class="box" style="width: 800px; height: 400px;"
-              :style="{transform:`translateZ(-200px) translateX(-50%) translateY(-50%) rotateX(${rotationValue}deg)`}">
-          <figure class="front" style="background:red; width: 800px; height: 400px; transform: rotateY(0deg) translateZ(200px); display: block;">
-            <div style="text-align:center;">
-              <router-link to="/project1">One</router-link>
-            </div>
-          </figure>
-          <figure class="bottom" style="background:yellow; width: 800px; height: 400px; transform: rotateX(270deg) translateZ(200px); display: block;">
-            <router-link to="/project3">Two</router-link>
-          </figure>
-          <figure class="back" style="background:green; width: 800px; height: 400px; transform: rotateX(180deg) translateZ(200px); display: block;">
-            <router-link to="/project2">Switch</router-link>
-          </figure>
-          <figure class="top" style="background:blue; width: 800px; height: 400px; top: 200px; transform: rotateX(90deg) translateZ(400px); display: block;"></figure>
-      
+        <div class="box"
+             :style="{transform:`translateZ(-150px) translateX(-50%) translateY(-50%) rotateX(${rotationValue}deg)`}">
+          <div class="boxFace box__front">
+            <h3 class="boxFace__title">
+              <router-link to="/project1" class="textLink">Xenos</router-link>
+            </h3>
+            <img class="boxFace__img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7f554862416727.5a8f67a59d9a9.png" alt="">
+          </div>
+          <div class="boxFace box__bottom">
+            <h3 class="boxFace__title">
+              <router-link to="/project2" class="textLink">Kwint</router-link>
+            </h3>
+          </div>
+          <div class="boxFace box__back">
+            <h3 class="boxFace__title">
+              <router-link to="/project3" class="textLink">eiga</router-link>
+            </h3>
+          </div>
+          <div class="boxFace box__top"></div>
     </div> 
 
 
@@ -94,30 +98,64 @@ export default {
     display: flex;
     flex-direction: column;
     perspective: 1200px;
-    -webkit-perspective: 1200px;
-
   }
 
   .box {
-    -webkit-transform: rotateX(0);
-    transform: rotateX(0);
-    will-change: transform;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
+    position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
+    width: 600px; 
+    height: 300px;
+    transform: rotateX(0);
+    will-change: transform;
+    transform-style: preserve-3d; 
     transform: translate3d(-50%, -50%, 0);
     transition: transform 1s ease;
-    position: absolute;
-  & figure {
+    & .boxFace {
       visibility: visible;
       position: absolute;
       margin: 0;
       overflow: hidden;
-      background-color: white;
       backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &__title {
+        padding: 10px;
+        background-color: var(--main-color);
+        position: absolute;
+        z-index: 1;
+      }
+      &__img {}
+    }
+    &__front {
+      background:red;
+      display: block;
+      width: 600px;
+      height: 300px;
+      transform: rotateY(0deg) translateZ(150px); 
+    }
+    &__bottom {
+      background:yellow; 
+      display: block;
+      width: 600px;
+      height: 300px; 
+      transform: rotateX(270deg) translateZ(150px); 
+    }
+    &__back {
+      background:green;
+      display: block;
+      width: 600px;
+      height: 300px; 
+      transform: rotateX(180deg) translateZ(150px); 
+    }
+    &__top {
+      background:blue; 
+      display: block;
+      width: 600px; 
+      height: 300px; 
+      top: 150px; 
+      transform: rotateX(90deg) translateZ(300px); 
     }
   } 
 

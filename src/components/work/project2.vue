@@ -1,9 +1,9 @@
 <template>
-  <div class="red">flaaa</div>
+  <div class="blue">flaaa</div>
 </template>
 
 <style lang="scss">
-.red {
+.blue {
   z-index: 20;
   width:100%;
   height: 100%;

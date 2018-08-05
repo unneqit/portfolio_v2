@@ -129,6 +129,14 @@ h2 {
 
 h3 {
   font-family: var(--title-font);
+  font-size: 24px;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text-color);
+  text-align: center;
+}
+
+h4 {
+  font-family: var(--title-font);
   font-size: 14px;
   color: var(--text-color);
 }
@@ -144,7 +152,14 @@ p {
 }
 
 .textLink {
+  text-decoration: none;
   font-family: var(--title-font);
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--text-color);
+  transition: color 0.5s ease;
+  &:hover {
+      color: var(--text-color);
+  }
 }
 
 </style>

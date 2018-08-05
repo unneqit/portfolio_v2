@@ -1,8 +1,8 @@
 <template>
   <section id="about" :class="{isOpened: step>2}">
     <div class="aboutContent">
-      <p class="aboutText">Bonjour</p>
-      <p class="aboutText">Je m'appelle Quentin Lenglin. Je suis étudiant en Bachelor Web à <a class="textLink">HETIC</a> et actuellement stagiaire chez <a class="textLink">Dernier Cri</a>. Je suis à la recherche d'un contrat de professionnalisation de 2 ans à partir d’octobre 2018. Vous pouvez me contacter ici : quentin.lenglin@gmail.com</p>
+      <p class="aboutText">Bonjour !</p>
+      <p class="aboutText">Je m'appelle Quentin Lenglin. Je suis étudiant en Bachelor Web à <a href="https://www.hetic.net/" class="textLink">HETIC</a> et actuellement stagiaire chez <a href="https://derniercri.io/" class="textLink">Dernier Cri</a>. Je suis à la recherche d'un contrat de professionnalisation de 2 ans à partir d’octobre 2018. Vous pouvez me contacter ici : <a href="mailto:quentin.lenglin@gmail.com">quentin.lenglin@gmail.com</a></p>
     </div>
   </section>
 </template>
@@ -36,9 +36,10 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 200px 0 200px;
+    margin: 0 20vw 0 20vw;
     & .aboutText {
-      font-size: 28px;
+      font-size: 34px;
+      line-height: 1.2;
     }
   }
 

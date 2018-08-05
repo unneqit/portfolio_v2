@@ -10,20 +10,20 @@
          @mouseout="hoverOff">
       <div class="scrollContainer" :style="{ transform: transform}">
         <div class="scrollContent" ref="scrollContent">
-          <h3>UX/UI Designer Junior en stage chez Dernier Cri</h3>
-          <h3>quentin.lenglin@gmail.com</h3>
-          <h3>Ne cliquez pas ici</h3>
-          <h3>Plusieurs milliers d’heures passées sur NBA 2K</h3>
-          <h3>Je fais caca du caca</h3>
-          <h3>Prout prout prout prout prout</h3>
+          <h4>UX/UI Designer Junior en stage chez Dernier Cri</h4>
+          <h4>quentin.lenglin@gmail.com</h4>
+          <h4>Ne cliquez pas ici</h4>
+          <h4>blabla bla bla bla bla bla bla bla</h4>
+          <h4>hahahahahaha</h4>
+          <h4>a a a a a aaaaaa a a aaaa a aaa</h4>
         </div>
         <div class="scrollContent">
-          <h3>UX/UI Designer Junior en stage chez Dernier Cri</h3>
-          <h3>quentin.lenglin@gmail.com</h3>
-          <h3>Ne cliquez pas ici</h3>
-          <h3>Plusieurs milliers d’heures passées sur NBA 2K</h3>
-          <h3>Je fais caca du caca</h3>
-          <h3>Prout prout prout prout prout</h3>
+          <h4>UX/UI Designer Junior en stage chez Dernier Cri</h4>
+          <h4>quentin.lenglin@gmail.com</h4>
+          <h4>Ne cliquez pas ici</h4>
+          <h4>blabla bla bla bla bla bla bla bla</h4>
+          <h4>hahahahahaha</h4>
+          <h4>a a a a a aaaaaa a a aaaa a aaa</h4>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@ export default {
   .scrollContent {
     display: flex;
     justify-content: space-around;
-    & p, h3 {
+    & h4 {
       white-space: nowrap;
       padding-left:40px;
 
