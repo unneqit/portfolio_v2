@@ -1,17 +1,16 @@
 <template>
-  <v-touch id="app"
-           v-on:swipedown="stepDown"
-           v-on:swipeup="stepUp">
+  <div id="app">
     
     <Intro :step="currentStep"/>
     <About :step="currentStep"/>
     <Work @back="backToStep"
           :step="currentStep"
           :allow="allowScroll"/>
-    
-    <router-view></router-view>
+      <transition name="slide-fade">
 
-  </v-touch>
+    <router-view></router-view>
+</transition>
+  </div>
 </template>
 
 <script>
@@ -29,7 +28,12 @@ export default {
   data : () => ({
     currentStep: 1,
     allowScroll: true,
-    timeOut: false
+    timeOut: false,
+    touch: {
+      active:false,
+      start:undefined,
+      end:undefined
+    }
   }),
   methods: {
     // step suivante
@@ -74,6 +78,30 @@ export default {
         this.stepDown()
       }
     })
+
+    window.addEventListener('touchstart', (e) => {
+      this.touch.active=true
+      this.touch.start=e.changedTouches[0].clientY
+      this.touch.end=e.changedTouches[0].clientY
+    })
+    window.addEventListener('touchmove', (e) => {
+      if(this.touch.active) {
+        this.touch.end=e.changedTouches[0].clientY
+      }
+    })
+    window.addEventListener('touchend', (e) => {
+      if (this.touch.active) {
+        let diff = this.touch.start-this.touch.end
+        if (diff < -100) {
+          this.stepDown()
+        } else if (diff > 100) {
+          this.stepUp()
+        }      
+      }
+      this.touch.active=false
+    })
+
+
   }
 }
 </script>
@@ -150,4 +178,15 @@ p {
   font-family: var(--title-font);
 }
 
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-1000px);
+}
 </style>

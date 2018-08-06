@@ -1,7 +1,5 @@
 <template>
-  <v-touch id="work"
-           v-on:swipedown="cubeDown"
-           v-on:swipeup="cubeUp">
+  <section id="work">
     <a class="backButton"
        href="#"
        @click="back">Retour</a>
@@ -23,7 +21,7 @@
     </div> 
 
 
-  </v-touch>
+  </section>
 </template>
 
 
@@ -33,7 +31,12 @@ export default {
   data: () => ({
     cubeStep:0,
     allowCubeSpin:true,
-    timeOut:false
+    timeOut:false,
+    touch: {
+      active:false,
+      start:undefined,
+      end:undefined
+    }
   }),
   computed: {
     rotationValue(){
@@ -41,6 +44,7 @@ export default {
     }
   },
   methods: {
+    
     // retour à la step 1 (app)
     back(){
       this.$emit("back", 1)
@@ -80,11 +84,39 @@ export default {
   created() {
     // ecouteur sur le défilement
     window.addEventListener("wheel", (e) => {
+      if (this.$router.currentRoute.path!=="/") {
+        return
+      }  
       if (e.deltaY>30) {
         this.cubeUp()
       } else if (e.deltaY<-30) {
         this.cubeDown()
       }
+    })
+
+    window.addEventListener('touchstart', (e) => {
+      this.touch.active=true
+      this.touch.start=e.changedTouches[0].clientY
+      this.touch.end=e.changedTouches[0].clientY
+    })
+    window.addEventListener('touchmove', (e) => {
+      if(this.touch.active) {
+        this.touch.end=e.changedTouches[0].clientY
+      }
+    })
+    window.addEventListener('touchend', (e) => {
+      if (this.$router.currentRoute.path!=="/") {
+        return
+      }
+      if (this.touch.active) {
+        let diff = this.touch.start-this.touch.end
+        if (diff < -100) {
+          this.cubeDown()
+        } else if (diff > 100) {
+          this.cubeUp()
+        }   
+      }
+      this.touch.active=false
     })
   }
 }
