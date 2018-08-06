@@ -6,9 +6,6 @@ import router from './router.js'
 Vue.config.productionTip = false
 
 Vue.use(VueTouch, {name: 'v-touch'})
-console.log(router);
-
-
 
 new Vue({
   router,

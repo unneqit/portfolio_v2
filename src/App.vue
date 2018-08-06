@@ -5,7 +5,7 @@
     
     <Intro :step="currentStep"/>
     <About :step="currentStep"/>
-    <Work v-on:back="backToStepOne"
+    <Work @back="backToStep"
           :step="currentStep"
           :allow="allowScroll"/>
     
@@ -32,18 +32,17 @@ export default {
     timeOut: false
   }),
   methods: {
+    // step suivante
     stepUp() {
-
       if(this.currentStep >= 3 || !this.allowScroll) {
         return
       }
       this.currentStep++
       this.allowScroll=false
       this.scrollTimeOut()
-
     },
+    // step précédente
     stepDown() {
-      
       if(this.currentStep <= 1 || !this.allowScroll || this.currentStep===3 ) {
         return
       }
@@ -51,11 +50,13 @@ export default {
       this.allowScroll=false
       this.scrollTimeOut()
     },
-    backToStepOne() {
-      this.currentStep=1
+    // retour à une step précédente (appelé depuis work)
+    backToStep(step) {
+      this.currentStep=step
       this.allowScroll=false
       this.scrollTimeOut()
     },
+    // empeche un nouveau changement de step avant la fin d'une animation
     scrollTimeOut() {
       clearTimeout(this.timeOut)
       this.timeOut = setTimeout(() => {
@@ -64,6 +65,8 @@ export default {
     }
   },
   created() {
+
+    // ecouteur sur le défilement
     window.addEventListener("wheel", (e) => {
       if (e.deltaY>30) {
         this.stepUp()

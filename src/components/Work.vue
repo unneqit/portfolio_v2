@@ -45,10 +45,12 @@ export default {
     }
   },
   methods: {
+    // retour à la step 1 (app)
     back(){
-      this.$emit("back")
+      this.$emit("back", 1)
       this.cubeStep = 0
     },
+    // cubestep suivant
     cubeUp(){
       if(this.cubeStep >= 3 || !this.allowCubeSpin || this.step !== 3 || !this.allow) {
         return
@@ -56,16 +58,22 @@ export default {
       this.cubeStep++
       this.allowCubeSpin=false
       this.spinTimeOut()
-
     },
+    // cubestep précédent
     cubeDown(){
-      if(this.cubeStep <= 0 || !this.allowCubeSpin || this.step !== 3 || !this.allow) {
+      if(!this.allowCubeSpin || this.step !== 3 || !this.allow) {
+        return
+      }
+      // si cubestep == 0, retour à la step 2 (app)
+      if (this.cubeStep <= 0) {
+        this.$emit("back", 2)
         return
       }
       this.cubeStep--
       this.allowCubeSpin=false
       this.spinTimeOut()
     },
+    // empeche le declenchement d'un nouveau changement de step avant la fin d'une animation
     spinTimeOut() {
       clearTimeout(this.timeOut)
       this.timeOut = setTimeout(() => {
@@ -74,7 +82,7 @@ export default {
     }
   },
   created() {
-
+    // ecouteur sur le défilement
     window.addEventListener("wheel", (e) => {
       if (e.deltaY>30) {
         this.cubeUp()
