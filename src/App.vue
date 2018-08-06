@@ -1,7 +1,5 @@
 <template>
-  <div id="app"
-           v-on:swipedown="stepDown"
-           v-on:swipeup="stepUp">
+
   <div id="app">
     
     <Intro :step="currentStep"/>
