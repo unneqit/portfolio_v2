@@ -1,30 +1,33 @@
 <template>
   <section id="work">
-    <a class="backButton"
-       href="#"
-       @click="back">Retour</a>
-        <div class="box"
-             :style="{transform:`translateZ(-150px) translateX(-50%) translateY(-50%) rotateX(${rotationValue}deg)`}">
-          <div class="boxFace box__front">
-            <h3 class="boxFace__title">
-              <router-link to="/project1" class="textLink">Xenos</router-link>
-            </h3>
-            <img class="boxFace__img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7f554862416727.5a8f67a59d9a9.png" alt="">
-          </div>
-          <div class="boxFace box__bottom">
-            <h3 class="boxFace__title">
-              <router-link to="/project2" class="textLink">Kwint</router-link>
-            </h3>
-          </div>
-          <div class="boxFace box__back">
-            <h3 class="boxFace__title">
-              <router-link to="/project3" class="textLink">eiga</router-link>
-            </h3>
-          </div>
-          <div class="boxFace box__top"></div>
-    </div> 
+    <div class="workContainer">
+      <a class="backButton"
+        href="#"
+        @click="back">
+        &#x2715;
+      </a>
 
-
+      <div class="box"
+            :style="{transform:`translateZ(-150px) translateX(-50%) translateY(-50%) rotateX(${rotationValue}deg)`}">
+        <div class="boxFace box__front">
+          <h3 class="boxFace__title">
+            <router-link to="/project1" class="textLink">Xenos</router-link>
+          </h3>
+          <img class="boxFace__img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7f554862416727.5a8f67a59d9a9.png" alt="">
+        </div>
+        <div class="boxFace box__bottom">
+          <h3 class="boxFace__title">
+            <router-link to="/project2" class="textLink">Kwint</router-link>
+          </h3>
+        </div>
+        <div class="boxFace box__back">
+          <h3 class="boxFace__title">
+            <router-link to="/project3" class="textLink">eiga</router-link>
+          </h3>
+        </div>
+        <div class="boxFace box__top"></div>
+      </div> 
+    </div>
   </section>
 </template>
 
@@ -135,22 +138,28 @@ export default {
     top: 0;
     left:0;
     background-color: var(--third-color);
-    display: flex;
-    flex-direction: column;
     perspective: 1200px;
+  }
+
+  .workContainer {
+    height: 100%;
+    display: flex;
   }
 
   .box {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 600px; 
+    width: 300px; 
     height: 300px;
     transform: rotateX(0);
     will-change: transform;
     transform-style: preserve-3d; 
     transform: translate3d(-50%, -50%, 0);
     transition: transform 1s ease;
+    @media (min-width:768px) {
+      width: 600px;
+    }
     & .boxFace {
       visibility: visible;
       position: absolute;
@@ -166,44 +175,53 @@ export default {
         position: absolute;
         z-index: 1;
       }
-      &__img {}
+      &__img {
+        width: 100%;
+        height: auto;
+      }
     }
     &__front {
       background:red;
       display: block;
-      width: 600px;
+      width: 300px;
       height: 300px;
-      transform: rotateY(0deg) translateZ(150px); 
+      transform: rotateY(0deg) translateZ(150px);
+      @media (min-width:768px) {
+        width: 600px;
+      }
     }
     &__bottom {
       background:yellow; 
       display: block;
-      width: 600px;
+      width: 300px;
       height: 300px; 
-      transform: rotateX(270deg) translateZ(150px); 
+      transform: rotateX(270deg) translateZ(150px);
+      @media (min-width:768px) {
+        width: 600px;
+      }
     }
     &__back {
       background:green;
       display: block;
-      width: 600px;
+      width: 300px;
       height: 300px; 
-      transform: rotateX(180deg) translateZ(150px); 
+      transform: rotateX(180deg) translateZ(150px);
+      @media (min-width:768px) {
+        width: 600px;
+      }
     }
     &__top {
       background:blue; 
       display: block;
-      width: 600px; 
+      width: 300px; 
       height: 300px; 
       top: 150px; 
-      transform: rotateX(90deg) translateZ(300px); 
+      transform: rotateX(90deg) translateZ(300px);
+      @media (min-width:768px) {
+        width: 600px;
+      }
     }
   } 
-
-    
-  .backButton {
-    position: absolute;
-    margin-top:500px;
-  }
 
 </style>
 

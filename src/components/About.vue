@@ -1,8 +1,11 @@
 <template>
   <section id="about" :class="{isOpened: step>2}">
-    <div class="aboutContent">
+    <div class="aboutContainer">
       <p class="aboutText">Bonjour !</p>
-      <p class="aboutText">Je m'appelle Quentin Lenglin. Je suis étudiant en Bachelor Web à <a href="https://www.hetic.net/" class="textLink">HETIC</a> et actuellement stagiaire chez <a href="https://derniercri.io/" class="textLink">Dernier Cri</a>. Je suis à la recherche d'un contrat de professionnalisation de 2 ans à partir d’octobre 2018. Vous pouvez me contacter ici : <a href="mailto:quentin.lenglin@gmail.com">quentin.lenglin@gmail.com</a></p>
+      <p class="aboutText">Je m'appelle Quentin Lenglin. Je suis étudiant en Bachelor Web à <a href="https://www.hetic.net/" class="textLink">HETIC</a> et actuellement stagiaire chez <a href="https://derniercri.io/" class="textLink">Dernier Cri</a>. Je suis à la recherche d'un <span>contrat de professionnalisation de 2 ans</span> à partir d’octobre 2018 en tant qu'UX/UI Designer.</p>
+    </div>
+    <div class="bottomContainer">
+      <h4 class="textBlink">Scrollez pour voir un extrait de mon travail</h4>
     </div>
   </section>
 </template>
@@ -15,6 +18,10 @@ export default {
 
 
 <style lang="scss" scoped>
+  ::selection {
+    background: var(--main-color);
+  }
+
   #about {
     height: 100%;
     position: fixed;
@@ -23,6 +30,8 @@ export default {
     right:0;
     z-index: 1;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: var(--secondary-color);
     transition: transform 1s ease;
     transform-origin: center bottom 0px;
@@ -32,15 +41,28 @@ export default {
     }
   }
 
-  .aboutContent {
+  .aboutContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 20vw 0 20vw;
+    margin: 0 18vw 0 18vw;
     & .aboutText {
-      font-size: 34px;
-      line-height: 1.2;
+      font-size: 20px;
+      line-height: 1.4;
+      @media (min-width:768px) {
+        font-size: 24px;
+      }
+      &:first-child {
+        margin-bottom: 30px;
+      }
     }
+  }
+  
+  .bottomContainer {
+    align-self: center;
+    position: absolute;
+    bottom: 40px;
+    text-align: center;
   }
 
 </style>

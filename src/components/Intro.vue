@@ -1,8 +1,8 @@
 <template>
   <section id="intro" :class="{isOpened: step != 1}">
-    <div class="header">
-      <h1 class="title">Quentin Lenglin</h1>
-      <h2 class="subTitle">UX/UI Designer Junior</h2>
+    <div class="introHeader">
+      <h1 class="introTitle">Quentin Lenglin</h1>
+      <h2 class="introSubtitle">UX/UI Designer Junior</h2>
     </div>
 
     <div class="scrollWrapper"
@@ -10,20 +10,20 @@
          @mouseout="hoverOff">
       <div class="scrollContainer" :style="{ transform: transform}">
         <div class="scrollContent" ref="scrollContent">
-          <h4>UX/UI Designer Junior en stage chez Dernier Cri</h4>
-          <h4>quentin.lenglin@gmail.com</h4>
-          <h4>Ne cliquez pas ici</h4>
-          <h4>blabla bla bla bla bla bla bla bla</h4>
-          <h4>hahahahahaha</h4>
-          <h4>a a a a a aaaaaa a a aaaa a aaa</h4>
+          <h4 class="scrollText">UX/UI Designer Junior stagiaire chez Dernier Cri</h4>
+          <h4 class="scrollText textBlink">Scrollez pour en savoir plus</h4>
+          <h4 class="scrollText">uuu</h4>
+          <h4 class="scrollText">blabla bla bla bla bla bla bla bla</h4>
+          <h4 class="scrollText">Ne cliquez pas <span>&#8680; ici &#8678;</span></h4>
+          <h4 class="scrollText">Beaucoup trop d'heures passés sur NBA 2K</h4>
         </div>
         <div class="scrollContent">
-          <h4>UX/UI Designer Junior en stage chez Dernier Cri</h4>
-          <h4>quentin.lenglin@gmail.com</h4>
-          <h4>Ne cliquez pas ici</h4>
-          <h4>blabla bla bla bla bla bla bla bla</h4>
-          <h4>hahahahahaha</h4>
-          <h4>a a a a a aaaaaa a a aaaa a aaa</h4>
+          <h4 class="scrollText">UX/UI Designer Junior stagiaire chez Dernier Cri</h4>
+          <h4 class="scrollText textBlink">Scrollez pour en savoir plus</h4>
+          <h4 class="scrollText">uuu</h4>
+          <h4 class="scrollText">blabla bla bla bla bla bla bla bla</h4>
+          <h4 class="scrollText">Ne cliquez pas <span>&#8680; ici &#8678;</span></h4>
+          <h4 class="scrollText">Beaucoup trop d'heures passés sur NBA 2K</h4>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@ export default {
       } else if(!this.hoverScroll && window.innerWidth>480) {
         this.scroll += 0.8
       } else {
-        this.scroll += 0.3
+        this.scroll += 0.8
       }
     }, 10)
   }
@@ -68,17 +68,22 @@ export default {
 
 
 <style lang="scss" scoped>
+  
+  ::selection {
+    background: var(--secondary-color);
+    }
+
   #intro {
     height: 100%;
-    background-color: var(--main-color);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: fixed;
     top:0;
     left:0;
     right:0;
     z-index:2;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    background-color: var(--main-color);
     transition: transform 1s ease;
     transform-origin: center top 0px; 
     &.isOpened {
@@ -87,11 +92,11 @@ export default {
     }
   }
 
-  .header {
+  .introHeader {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    & .title{
+    align-items: center;
+    & .introTitle{
       margin-bottom: 20px;
     }
   }
@@ -112,16 +117,17 @@ export default {
   .scrollContent {
     display: flex;
     justify-content: space-around;
-    & h4 {
+    & .scrollText {
       white-space: nowrap;
       padding-left:40px;
-
       &::after {
         content: "///";
         margin-left:40px;
       }
+      & span {
+        cursor: not-allowed;
+      }
     }
-
   }
 
   

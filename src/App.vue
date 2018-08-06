@@ -93,9 +93,9 @@ export default {
     window.addEventListener('touchend', (e) => {
       if (this.touch.active) {
         let diff = this.touch.start-this.touch.end
-        if (diff < -100) {
+        if (diff < -20) {
           this.stepDown()
-        } else if (diff > 100) {
+        } else if (diff > 20) {
           this.stepUp()
         }      
       }
@@ -116,7 +116,7 @@ export default {
 }
 
 @font-face {
-  font-family: "WorkSans-Medium";
+  font-family: "WorkSans-Medium", "Helvetica", "Arial", sans-serif;
   src: url("./assets/fonts/WorkSans-Medium.otf");
 }
 
@@ -134,8 +134,8 @@ html {
   --secondary-color: #FFFFFF;
   --third-color: #E5E5E5;
   --text-color: #000;
-  --title-font: "O", "Franklin Gothic", sans-serif;
-  --text-font: "WorkSans-Medium";
+  --title-font: "O", "Arial Black", sans-serif;
+  --text-font: "WorkSans-Medium", Helvetica, Arial, sans-serif;
 }
 
 h1 {
@@ -192,6 +192,14 @@ p {
   &:hover {
       color: var(--text-color);
   }
+}
+
+.textBlink {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {  
+  50% { opacity: 0; }
 }
 
 
