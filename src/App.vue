@@ -1,5 +1,5 @@
 <template>
-  <v-touch id="app"
+  <div id="app"
            v-on:swipedown="stepDown"
            v-on:swipeup="stepUp">
     
@@ -11,7 +11,7 @@
     
     <router-view></router-view>
 
-  </v-touch>
+  </div>
 </template>
 
 <script>
@@ -68,9 +68,9 @@ export default {
 
     // ecouteur sur le défilement
     window.addEventListener("wheel", (e) => {
-      if (e.deltaY>30) {
+      if (e.deltaY>20) {
         this.stepUp()
-      } else if (e.deltaY<-30) {
+      } else if (e.deltaY<-20) {
         this.stepDown()
       }
     })
