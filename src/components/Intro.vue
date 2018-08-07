@@ -10,17 +10,17 @@
          @mouseout="hoverOff">
       <div class="scrollContainer" :style="{ transform: transform}">
         <div class="scrollContent" ref="scrollContent">
+          <h4 class="scrollText">Étudiant à HETIC</h4>
           <h4 class="scrollText">UX/UI Designer Junior stagiaire chez Dernier Cri</h4>
-          <h4 class="scrollText textBlink">Scrollez pour en savoir plus</h4>
-          <h4 class="scrollText">uuu</h4>
+          <h4 class="scrollText"><span class="textBlink">Scrollez pour en savoir plus</span></h4>
           <h4 class="scrollText">blabla bla bla bla bla bla bla bla</h4>
           <h4 class="scrollText">Ne cliquez pas <span>&#8680; ici &#8678;</span></h4>
           <h4 class="scrollText">Beaucoup trop d'heures passés sur NBA 2K</h4>
         </div>
         <div class="scrollContent">
+          <h4 class="scrollText">Étudiant à HETIC</h4>
           <h4 class="scrollText">UX/UI Designer Junior stagiaire chez Dernier Cri</h4>
-          <h4 class="scrollText textBlink">Scrollez pour en savoir plus</h4>
-          <h4 class="scrollText">uuu</h4>
+          <h4 class="scrollText"><span class="textBlink">Scrollez pour en savoir plus</span></h4>
           <h4 class="scrollText">blabla bla bla bla bla bla bla bla</h4>
           <h4 class="scrollText">Ne cliquez pas <span>&#8680; ici &#8678;</span></h4>
           <h4 class="scrollText">Beaucoup trop d'heures passés sur NBA 2K</h4>
