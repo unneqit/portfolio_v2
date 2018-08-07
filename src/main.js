@@ -1,14 +1,15 @@
 import Vue from 'vue'
-import App from './App.vue'
-import VueTouch from 'vue-touch'
-import router from './router.js'
+import VueAnalytics from 'vue-analytics'
 
+import App from './App.vue'
+import router from './router.js'
 
 Vue.config.productionTip = false
 
-
-
-Vue.use(VueTouch, {name: 'v-touch'})
+Vue.use(VueAnalytics, {
+  id:"UA-123501070-1",
+  router
+})
 
 new Vue({
   router,
