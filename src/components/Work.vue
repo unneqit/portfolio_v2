@@ -1,32 +1,40 @@
 <template>
   <section id="work">
     <div class="workContainer">
-      <a class="backButton"
+      <div class="box"
+            :style="{transform:`translateX(-50%) translateY(-50%) rotateX(${rotationValue}deg)`}">
+        <div class="boxFace box__front">
+          <h3 class="boxFace__title">
+            <router-link to="/xenos" class="textLink">Xenos</router-link>
+          </h3>
+          <img class="boxFace__img" src="../../src/assets/img/xenos_cover.png" alt="">
+        </div>
+        <div class="boxFace box__bottom">
+          <h3 class="boxFace__title">
+            <router-link to="/kwint" class="textLink">Kwint</router-link>
+          </h3>
+            <img class="boxFace__img" src="../../src/assets/img/kwint_cover.png" alt="">
+        </div>
+        <div class="boxFace box__back">
+          <h3 class="boxFace__title">
+            <router-link to="/eiga" class="textLink">eiga</router-link>
+          </h3>
+            <img class="boxFace__img" src="../../src/assets/img/eiga_cover.png" alt="">
+        </div>
+        <div class="boxFace box__top">
+          <p class="boxFace__text">
+            Vous pouvez aussi me retrouver sur <a target="_blank" href="https://www.behance.net/quentinlenglin" class="textLink">Behance</a>. Je contribue également au projet <a target="_blank" href="https://github.com/Dreamvo" class="textLink">Dreamvo</a>.
+          </p>
+          <p class="boxFace__text">
+            Si vous avez une opportunité intéressante, vous pouvez me contacter <a href="mailto:quentin.lenglin@gmail.com" class="textLink">ici</a>.
+          </p>
+        </div>
+      </div> 
+      <a class="closeButton"
         href="#"
         @click="back">
         &#x2715;
       </a>
-
-      <div class="box"
-            :style="{transform:`translateZ(-150px) translateX(-50%) translateY(-50%) rotateX(${rotationValue}deg)`}">
-        <div class="boxFace box__front">
-          <h3 class="boxFace__title">
-            <router-link to="/project1" class="textLink">Xenos</router-link>
-          </h3>
-          <img class="boxFace__img" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7f554862416727.5a8f67a59d9a9.png" alt="">
-        </div>
-        <div class="boxFace box__bottom">
-          <h3 class="boxFace__title">
-            <router-link to="/project2" class="textLink">Kwint</router-link>
-          </h3>
-        </div>
-        <div class="boxFace box__back">
-          <h3 class="boxFace__title">
-            <router-link to="/project3" class="textLink">eiga</router-link>
-          </h3>
-        </div>
-        <div class="boxFace box__top"></div>
-      </div> 
     </div>
   </section>
 </template>
@@ -117,9 +125,9 @@ export default {
       }
       if (this.touch.active) {
         let diff = this.touch.start-this.touch.end
-        if (diff < -100) {
+        if (diff < -50) {
           this.cubeDown()
-        } else if (diff > 100) {
+        } else if (diff > 50) {
           this.cubeUp()
         }   
       }
@@ -130,6 +138,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  ::-webkit-scrollbar { 
+      display: none; 
+  }
+
+  ::selection {
+    background: var(--primary-color);
+  }
+
   #work {
     height: 100%;
     width: 100%;
@@ -143,23 +159,23 @@ export default {
 
   .workContainer {
     height: 100%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
   }
 
   .box {
     position: absolute;
+    z-index: 2;
     top: 50%;
     left: 50%;
-    width: 300px; 
-    height: 300px;
-    transform: rotateX(0);
+    width: 70vw;
+    height: 50vh;
+    max-width: 800px;
     will-change: transform;
     transform-style: preserve-3d; 
     transform: translate3d(-50%, -50%, 0);
-    transition: transform 1s ease;
-    @media (min-width:768px) {
-      width: 600px;
-    }
+    transition: transform 0.8s ease;
     & .boxFace {
       visibility: visible;
       position: absolute;
@@ -167,62 +183,81 @@ export default {
       overflow: hidden;
       backface-visibility: hidden;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      &:nth-child(4) {
+        overflow-y: auto;
+      }
       &__title {
         padding: 10px;
-        background-color: var(--main-color);
+        background-color: var(--primary-color);
         position: absolute;
         z-index: 1;
       }
       &__img {
+        position: absolute;
+        top: 0;
         width: 100%;
         height: auto;
       }
+      &__text {
+        font-size: 1.8rem;
+        line-height: 1.4;
+        margin: 0 5vw 0 5vw;
+        @media (min-width:768px) {
+          font-size: 2.4rem;
+        }
+        &:first-child {
+          margin-bottom: 20px;
+        }
+      }
     }
     &__front {
-      background:red;
+      background:#333333;
       display: block;
-      width: 300px;
-      height: 300px;
-      transform: rotateY(0deg) translateZ(150px);
-      @media (min-width:768px) {
-        width: 600px;
-      }
+      width: 100%;
+      height: 100%;
+      transform: rotateY(0deg) translateZ(25vh);
     }
     &__bottom {
-      background:yellow; 
+      background: #ffffff; 
       display: block;
-      width: 300px;
-      height: 300px; 
-      transform: rotateX(270deg) translateZ(150px);
-      @media (min-width:768px) {
-        width: 600px;
-      }
+      width: 100%;
+      height: 100%;
+      transform: rotateX(270deg) translateZ(25vh);
     }
     &__back {
-      background:green;
+      background: #1A1D24;
       display: block;
-      width: 300px;
-      height: 300px; 
-      transform: rotateX(180deg) translateZ(150px);
-      @media (min-width:768px) {
-        width: 600px;
-      }
+      width: 100%;
+      height: 100%;
+      transform: rotateX(180deg) translateZ(25vh);
     }
     &__top {
-      background:blue; 
+      background: var(--secondary-color); 
       display: block;
-      width: 300px; 
-      height: 300px; 
-      top: 150px; 
-      transform: rotateX(90deg) translateZ(300px);
-      @media (min-width:768px) {
-        width: 600px;
-      }
+      width: 100%; 
+      height: 100%;
+      transform: rotateX(90deg) translateZ(25vh);
     }
   } 
 
+  .closeButton {
+    position: absolute;
+    z-index: 1;
+    right: 5%;
+    top: 10%;
+    text-decoration: none;
+    color: #000;
+    font-size: 36px;
+    font-family: var(--text-font);
+    &:hover {
+      animation: shake 0.5s; 
+      animation-iteration-count: infinite; 
+    }
+    @media (min-width:768px) {
+      font-size: 52px;
+    }
+  }
 </style>
-
-

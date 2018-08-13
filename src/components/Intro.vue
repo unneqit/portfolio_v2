@@ -13,8 +13,8 @@
           <h4 class="scrollText">Étudiant à HETIC</h4>
           <h4 class="scrollText">UX/UI Designer Junior stagiaire chez Dernier Cri</h4>
           <h4 class="scrollText"><span class="textBlink">Scrollez pour en savoir plus</span></h4>
-          <h4 class="scrollText">blabla bla bla bla bla bla bla bla</h4>
-          <h4 class="scrollText">Ne cliquez pas <span>&#8680; ici &#8678;</span></h4>
+          <h4 class="scrollText"></h4>
+          <h4 class="scrollText">Ne cliquez pas <span class="noClick">&#8680; ici &#8678;</span></h4>
           <h4 class="scrollText">Beaucoup trop d'heures passés sur NBA 2K</h4>
         </div>
         <div class="scrollContent">
@@ -22,7 +22,7 @@
           <h4 class="scrollText">UX/UI Designer Junior stagiaire chez Dernier Cri</h4>
           <h4 class="scrollText"><span class="textBlink">Scrollez pour en savoir plus</span></h4>
           <h4 class="scrollText">blabla bla bla bla bla bla bla bla</h4>
-          <h4 class="scrollText">Ne cliquez pas <span>&#8680; ici &#8678;</span></h4>
+          <h4 class="scrollText">Ne cliquez pas <span class="noClick">&#8680; ici &#8678;</span></h4>
           <h4 class="scrollText">Beaucoup trop d'heures passés sur NBA 2K</h4>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default {
       } else if(!this.hoverScroll && window.innerWidth>480) {
         this.scroll += 0.8
       } else {
-        this.scroll += 0.8
+        this.scroll += 0.3
       }
     }, 10)
   }
@@ -83,8 +83,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    background-color: var(--main-color);
-    transition: transform 1s ease;
+    background-color: var(--primary-color);
+    transition: transform 0.8s ease;
     transform-origin: center top 0px; 
     &.isOpened {
       transform: matrix3d(1,0,0.00,0,0.00,0.17,0.98,0.001,0,-0.98,0.17,0,0,0,0,1);
@@ -103,11 +103,11 @@ export default {
 
   .scrollWrapper {
     height: 20px;
-    display:flex;
-    width:100%;
+    display: flex;
+    width: 100%;
     overflow: hidden;
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
   }
 
   .scrollContainer {
@@ -124,7 +124,7 @@ export default {
         content: "///";
         margin-left:40px;
       }
-      & span {
+      & .noClick {
         cursor: not-allowed;
       }
     }

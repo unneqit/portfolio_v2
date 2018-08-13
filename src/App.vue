@@ -7,10 +7,9 @@
     <Work @back="backToStep"
           :step="currentStep"
           :allow="allowScroll"/>
-      <transition name="slide-fade">
-
-    <router-view></router-view>
-</transition>
+    <transition name="slide-fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -116,8 +115,10 @@ export default {
 }
 
 @font-face {
-  font-family: "WorkSans-Medium", "Helvetica", "Arial", sans-serif;
-  src: url("./assets/fonts/WorkSans-Medium.otf");
+  font-family: "WorkSans-Medium";
+  src: url("./assets/fonts/WorkSans-Medium.woff2"),
+       url("./assets/fonts/WorkSans-Medium.woff") format('woff'),
+       url("./assets/fonts/WorkSans-Medium.ttf") format('truetype');
 }
 
 * {
@@ -127,10 +128,11 @@ export default {
 
 html {
   overflow: hidden;
+  font-size: 62.5%;
 }
 
 :root {
-  --main-color: #FFFF55;
+  --primary-color: #FFFF55;
   --secondary-color: #FFFFFF;
   --third-color: #E5E5E5;
   --text-color: #000;
@@ -140,28 +142,28 @@ html {
 
 h1 {
   font-family: var(--title-font);
-  font-size: 52px;
+  font-size: 5.2rem;
   color: transparent;
   -webkit-text-stroke: 2px var(--text-color);
   text-align: center;
   @media (min-width:768px) {
-      font-size: 72px;
+      font-size: 7.2rem;
   }
 }
 
 h2 {
   font-family: var(--title-font);
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--text-color);
   text-align: center;
   @media (min-width:768px) {
-    font-size: 28px;
+    font-size: 2.8rem;
   }
 }
 
 h3 {
   font-family: var(--title-font);
-  font-size: 24px;
+  font-size: 2.4rem;
   color: transparent;
   -webkit-text-stroke: 2px var(--text-color);
   text-align: center;
@@ -169,18 +171,30 @@ h3 {
 
 h4 {
   font-family: var(--title-font);
-  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.2;
   color: var(--text-color);
 }
 
 p {
   font-family: var(--text-font);
-  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.2;
   color: var(--text-color);
 }
 
 #app {
   height: 100%;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.8s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateY(1000px);
 }
 
 .textLink {
@@ -202,15 +216,18 @@ p {
   50% { opacity: 0; }
 }
 
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
 
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .3s ease;
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateY(-1000px);
-}
 </style>
