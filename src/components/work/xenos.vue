@@ -194,6 +194,10 @@
 </template>
 
 <style lang="scss">
+::selection {
+  background: var(--primary-color);
+}
+
 .projectSection01 {
   &__xenos {
     display: flex;

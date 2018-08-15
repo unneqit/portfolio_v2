@@ -19,53 +19,53 @@ export default {
 
 <style lang="scss" scoped>
 
-  ::selection {
-    background: var(--primary-color);
-  }
+::selection {
+  background: var(--primary-color);
+}
 
-  #about {
-    height: 100%;
-    position: fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--secondary-color);
-    transition: transform 0.8s ease;
-    transform-origin: center bottom 0px;
-    &.isOpened {
-      transform: matrix3d(1,0,0.00,0,0.00,0.17,0.98,-0.001,0,-0.98,0.17,0,0,0,0,1);
-      -webkit-transform: matrix3d(1,0,0.00,0,0.00,0.17,0.98,-0.001,0,-0.98,0.17,0,0,0,0,1);
+#about {
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  transition: transform 0.8s ease;
+  transform-origin: center bottom 0px;
+  &.isOpened {
+    transform: matrix3d(1,0,0.00,0,0.00,0.17,0.98,-0.001,0,-0.98,0.17,0,0,0,0,1);
+    -webkit-transform: matrix3d(1,0,0.00,0,0.00,0.17,0.98,-0.001,0,-0.98,0.17,0,0,0,0,1);
+  }
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 20vw 0 20vw;
+  max-width: 900px;
+  & .aboutText {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    @media (min-width:768px) {
+      font-size: 2.4rem;
+    }
+    &:first-child {
+      margin-bottom: 30px;
     }
   }
+}
 
-  .aboutContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 20vw 0 20vw;
-    max-width: 900px;
-    & .aboutText {
-      font-size: 1.8rem;
-      line-height: 1.4;
-      @media (min-width:768px) {
-        font-size: 2.4rem;
-      }
-      &:first-child {
-        margin-bottom: 30px;
-      }
-    }
-  }
-  
-  .bottomContainer {
-    align-self: center;
-    position: absolute;
-    bottom: 30px;
-    text-align: center;
-  }
+.bottomContainer {
+  align-self: center;
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+}
 
 </style>
