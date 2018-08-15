@@ -23,7 +23,7 @@
         </div>
         <div class="boxFace box__top">
           <p class="boxFace__text">
-            Vous pouvez aussi me retrouver sur <a target="_blank" href="https://www.behance.net/quentinlenglin" class="textLink">Behance</a>. Je contribue également au projet <a target="_blank" href="https://github.com/Dreamvo" class="textLink">Dreamvo</a>.
+            Vous pouvez aussi me retrouver sur <a target="_blank" href="https://www.behance.net/quentinlenglin" class="textLink">Behance</a>. Je contribue actuellement au projet <a target="_blank" href="https://dreamvo.com/" class="textLink">Dreamvo</a>.
           </p>
           <p class="boxFace__text">
             Si vous avez une opportunité intéressante, vous pouvez me contacter <a href="mailto:quentin.lenglin@gmail.com" class="textLink">ici</a>.

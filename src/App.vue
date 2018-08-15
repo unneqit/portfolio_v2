@@ -7,9 +7,7 @@
     <Work @back="backToStep"
           :step="currentStep"
           :allow="allowScroll"/>
-    <transition name="slide-fade">
-      <router-view></router-view>
-    </transition>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -134,7 +132,7 @@ html {
 :root {
   --primary-color: #FFFF55;
   --secondary-color: #FFFFFF;
-  --third-color: #E5E5E5;
+  --third-color: #EFEFEF;
   --text-color: #000;
   --title-font: "O", "Arial Black", sans-serif;
   --text-font: "WorkSans-Medium", Helvetica, Arial, sans-serif;
@@ -187,16 +185,6 @@ p {
   height: 100%;
 }
 
-.slide-fade-enter-active {
-  transition: all 0.8s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.8s ease;
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateY(1000px);
-}
-
 .textLink {
   text-decoration: none;
   font-family: var(--title-font);
@@ -212,6 +200,127 @@ p {
   animation: blink 1s linear infinite;
 }
 
+// Project
+.projectSubtitle {
+    margin-bottom: 20px;
+  }
+
+.projectLink {
+  text-decoration: underline;
+  color: var(--text-color);
+  &__big {
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--title-font);
+    font-size: 5.2rem;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--text-color);
+    transition: color 0.5s ease;
+    &:hover {
+      color: var(--text-color);
+    }
+    @media (min-width:768px) {
+      font-size: 7.2rem;
+    }
+  }
+}
+
+.projectWrapper {
+  z-index: 20;
+  width:100%;
+  height: 100%;
+  background: var(--secondary-color);
+  position: fixed;
+  top:0;
+  left:0;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.projectHeader {
+  background: var(--primary-color);
+  height: 300px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & .closeButton {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  text-decoration: none;
+  color: #000;
+  font-size: 36px;
+  font-family: var(--text-font);
+    &:hover {
+      animation: shake 0.5s; 
+      animation-iteration-count: infinite; 
+    }
+    @media (min-width:768px) {
+      font-size: 52px;
+    }
+  }
+}
+
+.projectContainer {
+  padding: 0 15vw 0 15vw;
+}
+
+.projectIntro {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+  @media (min-width:768px) {
+    flex-direction: row;
+  }
+  & .projectDescription {
+    width: 100%;
+    @media (min-width:768px) {
+      margin-right: 100px;
+      order: -1;
+    }
+    & .summary {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 80px;
+      @media (min-width:768px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      & .col-1 {
+        margin-bottom: 20px;
+        @media (min-width:768px) {
+          margin-bottom: 0;
+          width: 48%;
+        }
+      }
+      & .col-2 {
+        @media (min-width:768px) {
+          width: 48%;
+        }
+      }
+    }
+    & .paragraph:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  & .credits {
+    order: -1;
+    margin-bottom: 80px;
+    @media (min-width:768px) {
+      width: 30%;
+    }
+    & .creditsItem {
+      margin-bottom: 20px;
+    }
+    & .creditsTitle {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+//Keyframes
 @keyframes blink {  
   50% { opacity: 0; }
 }

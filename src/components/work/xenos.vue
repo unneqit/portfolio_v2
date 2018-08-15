@@ -17,7 +17,7 @@
                 Xenos est notre projet de fin de première année à HETIC.
               </h4>
               <p class="paragraph">
-                Durant les 2 dernières semaines de cette première année de Bachelor Web à HETIC, nous avons été amenés à réaliser un projet qui mettrait à contribution toutes nos connaissances acquises ces derniers mois.
+                Durant les 2 dernières semaines de cette première année de Bachelor Web à HETIC, nous avons été amenés à réaliser un projet qui a pu mettre à contribution toutes nos connaissances acquises ces derniers mois.
               </p>      
             </div>
             <div class="col-2">
@@ -95,7 +95,7 @@
         </div>
       </section>
 
-      <section class="projectSection01">
+      <section class="projectSection01__xenos">
         <div class="descriptionContainer">
           <h4 class="projectSubtitle">
             Établir une charte graphique ludique
@@ -115,7 +115,7 @@
           </div>
           <div class="paragraphContainer">
             <p class="paragraph">
-              Les illustrations, entièrement réalisées par Marc Ye, appuient ce côté dynamique et la gamification apportée à ce domaine qui peut paraître trop complexe.
+              Les illustrations, entièrement réalisées par Marc Ye, appuient ce côté dynamique et la ludification apportée à ce domaine qui peut paraître trop complexe.
             </p>
             <p class="paragraph">
               Elles permettent de renforcer la charte graphique et offrent une identité en adéquation avec les valeurs que Xenos véhicule.
@@ -124,7 +124,7 @@
         </div>
       </section>
       
-      <section class="projectSection02">
+      <section class="projectSection02__xenos">
         <div class="descriptionContainer">
           <h4 class="projectSubtitle">
             Trier et structurer les informations 
@@ -138,13 +138,13 @@
         </div>
       </section> 
       
-      <section class="projectSection03">
+      <section class="projectSection03__xenos">
         <div class="descriptionContainer">
           <h4 class="projectSubtitle">
             Penser mobile first 
           </h4>
           <p class="paragraph">
-            Ce site se destinant à une utilisation principalement sur mobile, les maquettes ont été conçues en prenant en compte cette contrainte essentielle. Les maquettes sont d’ailleurs accessibles <a class="projectLink" target="_blank" href="https://www.figma.com/file/p3BKA9wYbCh74wOgSXqeY4/XENOS-Quentin-LENGLIN?node-id=0%3A1">ici</a>.
+            Ce site se destinant à une utilisation principalement sur mobile, les maquettes ont été conçues en prenant en compte cette contrainte essentielle. Le fichier Figma est d’ailleurs accessible <a class="projectLink" target="_blank" href="https://www.figma.com/file/p3BKA9wYbCh74wOgSXqeY4/XENOS-Quentin-LENGLIN?node-id=0%3A1">ici</a>.
           </p>
         </div>
         <div class="imgWrapper">
@@ -164,13 +164,13 @@
         </div>
       </section>
 
-      <section class="projectSection04">
+      <section class="projectSection04__xenos">
         <div class="descriptionContainer">
           <h4 class="projectSubtitle">
             Décomposer pour mieux réutiliser
           </h4>
           <p class="paragraph">
-            Pour nous permettre de garder une consistance et une cohérence globale, ainsi que pour faciliter le travail des développeurs, j’ai opté pour une approche atomique, adaptée à notre contrainte de temps, des principaux composants réutilisés sur les différentes pages.
+            Pour nous permettre de garder une consistance et une harmonie globale, ainsi que pour faciliter le travail des développeurs, j’ai opté pour une approche atomique, adaptée à notre contrainte de temps, des principaux composants réutilisés sur les différentes pages.
           </p>
         </div>
         <div class="imgItemContainer">
@@ -178,9 +178,9 @@
         </div>
       </section> 
 
-      <section class="projectSection05">
+      <section class="projectSection05__xenos">
         <p class="conclusionParagraph">
-          Intensif mais plein d’enseignements, ce projet de fin d’année a été le plus challengeant d’un point de vue technique.  L’utilisation des frameworks Vue.js et Symfony m’ont permis d’expérimenter une variante adaptée de l’atomic design afin de fluidifier l’intégration et le développement. L’envergure du concept étant si vaste, il était difficile de se concentrer sur tous les différents aspects en si peu de temps. Il a donc fallu faire des choix et en tirer l’essentiel pour obtenir un résultat compréhensible.
+          Intensif mais plein d’enseignements, ce projet de fin d’année a été le plus challengeant d’un point de vue technique.  L’utilisation des frameworks Vue.js et Symfony m’ont permis d’expérimenter une variante adaptée de l’atomic design afin de fluidifier l’intégration et le développement. L’envergure du concept étant si vaste, il était difficile de se concentrer sur tous les différents aspects en si peu de temps. Il a donc fallu faire des choix et en tirer l’essentiel pour obtenir un résultat compréhensible et cohérent.
         </p>
       </section>
 
@@ -194,207 +194,189 @@
 </template>
 
 <style lang="scss">
-
-.projectSubtitle {
-    margin-bottom: 20px;
-  }
-
-.projectLink {
-  text-decoration: underline;
-  color: var(--text-color);
-  &__big {
-    text-decoration: none;
-    font-family: var(--title-font);
-    font-size: 5.2rem;
-    color: transparent;
-    -webkit-text-stroke: 2px var(--text-color);
-    text-align: center;
-  }
-}
-
-.projectWrapper {
-  z-index: 20;
-  width:100%;
-  height: 100%;
-  background: var(--secondary-color);
-  position: fixed;
-  top:0;
-  left:0;
-  margin: 0 auto;
-  overflow-y: auto;
-}
-
-.projectHeader {
-  background: var(--primary-color);
-  height: 300px;
-  margin-bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  & .closeButton {
-  position: absolute;
-  top: 60px;
-  right: 60px;
-  text-decoration: none;
-  color: #000;
-  font-size: 36px;
-  font-family: var(--text-font);
-    &:hover {
-      animation: shake 0.5s; 
-      animation-iteration-count: infinite; 
-    }
-    @media (min-width:768px) {
-      font-size: 52px;
-    }
-  }
-}
-
-.projectContainer {
-  padding: 0 15vw 0 15vw;
-}
-
-.projectIntro {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 100px;
-  @media (min-width:768px) {
-    flex-direction: row;
-  }
-}
-
-.projectDescription {
-  width: 100%;
-  @media (min-width:768px) {
-    width: 70%;
-  }
-  & .paragraph:not(:last-child) {
-    margin-bottom: 20px;
-  }
-}
-
-.credits {
-  order: -1;
-  margin-bottom: 80px;
-  @media (min-width:768px) {
-    order: 1;
-  }
-  & .creditsItem {
-    margin-bottom: 20px;
-  }
-  & .creditsTitle {
-    margin-bottom: 5px;
-  }
-}
-
-.summary {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-  & .col-1 {
-    margin-bottom: 20px;
-  }
-}
-
 .projectSection01 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 100px;
-  & .descriptionContainer {
-    margin-bottom: 40px;
-  }
-  & .imgWrapper {
-    width: 100%;
-    & .imgContainer {
+  &__xenos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    @media (min-width:768px) {
+      flex-direction: row;
+    }
+    & .imgWrapper {
       width: 100%;
-      margin-bottom: 20px;
-      & .imgItemContainer {
-        &:not(:last-child) {
-          margin-bottom: 40px;
+      @media (min-width:768px) {
+        margin-right: 100px;
+        order: -1;
+      }
+      & .imgContainer {
+        width: 100%;
+        margin-bottom: 20px;
+        & .imgItemContainer {
+          &:not(:last-child) {
+            margin-bottom: 40px;
+          }
         }
+        & .imgItem {
+          width: 100%;
+          height: auto;
+        }
+      }
+      & .paragraphContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @media (min-width:768px) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        & .paragraph {
+          &:first-child {
+            margin-bottom: 20px;
+            @media (min-width:768px) {
+              margin-bottom: 0;
+              width: 48%;
+            }
+          }
+          &:last-child {
+            @media (min-width:768px) {
+              width: 48%;
+            }
+          }
+        }
+      }
+    }
+    & .descriptionContainer {
+      margin-bottom: 40px;
+      @media (min-width:768px) {
+        width: 30%;
+      }
+    }
+
+  }
+}
+
+.projectSection02 {
+  &__xenos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    @media (min-width:768px) {
+      flex-direction: row;
+    }
+    & .descriptionContainer {
+      margin-bottom: 40px;
+      @media (min-width:768px) {
+        width: 30%;
+      }
+    }
+    & .imgItemContainer {
+      width: 100%;
+      @media (min-width:768px) {
+        margin-right: 100px;
+        order: -1;
       }
       & .imgItem {
         width: 100%;
         height: auto;
       }
-    }
-    & .paragraphContainer {
-      display: flex;
-      flex-direction: column;
-      & .paragraph:not(:last-child) {
-        margin-bottom: 20px;
-      }
-    }
-  }
-}
-
-.projectSection02 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 100px;
-  & .descriptionContainer {
-    margin-bottom: 40px;
-  }
-  & .imgItemContainer {
-    width: 100%;
-    & .imgItem {
-      width: 100%;
-      height: auto;
     }
   }
 }
 
 .projectSection03 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 100px;
-  & .descriptionContainer {
-    margin-bottom: 40px;
-  }
-  & .imgWrapper {
-    width: 100%;
-    & .imgContainer {
-      width: 100%;
-      margin-bottom: 20px;
-      & .imgItem {
-        width: 100%;
-        height: auto;
+  &__xenos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    @media (min-width:768px) {
+      flex-direction: row;
+    }
+    & .descriptionContainer {
+      margin-bottom: 40px;
+      @media (min-width:768px) {
+        width: 30%;
       }
     }
-    & .paragraphContainer {
-      display: flex;
-      flex-direction: column;
-      & .paragraph:not(:last-child) {
+    & .imgWrapper {
+      width: 100%;
+      @media (min-width:768px) {
+        margin-right: 100px;
+        order: -1;
+      }
+      & .imgContainer {
+        width: 100%;
         margin-bottom: 20px;
+        & .imgItem {
+          width: 100%;
+          height: auto;
+        }
+      }
+      & .paragraphContainer {
+        display: flex;
+        flex-direction: column;
+        @media (min-width:768px) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        & .paragraph {
+          &:first-child {
+            margin-bottom: 20px;
+            @media (min-width:768px) {
+              margin-bottom: 0;
+              width: 48%;
+            }
+          }
+          &:last-child {
+            @media (min-width:768px) {
+              width: 48%;
+            }
+          }
+        }
       }
     }
   }
 }
 
 .projectSection04 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 100px;
-  & .descriptionContainer {
-    margin-bottom: 40px;
-  }
-  & .imgItemContainer {
-    width: 100%;
-    & .imgItem {
+  &__xenos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    @media (min-width:768px) {
+      flex-direction: row;
+    }
+    & .descriptionContainer {
+      margin-bottom: 40px;
+      @media (min-width:768px) {
+        width: 30%;
+      }
+    }
+    & .imgItemContainer {
       width: 100%;
-      height: auto;
+      @media (min-width:768px) {
+        margin-right: 100px;
+        order: -1;
+      }
+      & .imgItem {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }
 
 .projectSection05 {
-  display: flex;
-  margin-bottom: 200px;
-  & .conclusionParagraph {
-    font-family: var(--title-font);
-    font-size: 1.4rem;
-    line-height: 1.6;
+  &__xenos {
+    display: flex;
+    margin-bottom: 200px;
+    & .conclusionParagraph {
+      font-family: var(--title-font);
+      font-size: 1.4rem;
+      line-height: 1.6;
+      @media (min-width:768px) {
+        width: 70%;
+      }
+    }
   }
 }
 
