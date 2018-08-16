@@ -55,6 +55,8 @@ export default {
     left:0;
     margin: 0 auto;
     overflow-y: auto;
+    display: flex;
+    justify-content: center;
   }
 
   .infoContainer {
