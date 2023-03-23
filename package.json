@@ -9,7 +9,7 @@
     "deploy": "node ./node_modules/vue-gh-pages/index.js --branch gh-pages"
   },
   "dependencies": {
-    "vue": "^2.5.16",
+    "vue": "^2.7.14",
     "vue-analytics": "^5.12.3",
     "vue-router": "^3.0.1"
   },
